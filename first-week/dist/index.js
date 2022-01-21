@@ -1,10 +1,16 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = __importDefault(require("react"));
-const react_dom_1 = __importDefault(require("react-dom"));
-const App_1 = __importDefault(require("./App"));
-const rootElement = document.getElementById('root');
-react_dom_1.default.render(<App_1.default />, rootElement);
+var $background = document.querySelector("#background");
+var $codeWrapper = document.querySelector(".code-wrapper");
+var $clickButton = document.querySelector(".click-button"); // $clickButton.addEventListener("click",hex);
+
+function hex() {
+  var code = "";
+  var POSSIBLE = "ABCDEF0123456789";
+
+  for (var i = 0; i < 6; i++) {
+    code += POSSIBLE.charAt(Math.floor(Math.random() * POSSIBLE.length));
+  }
+
+  $background.style.backgroundColor = "#" + code;
+  var hexCode = "HEX COLOR : #" + code;
+  $codeWrapper.textContent = hexCode;
+}
