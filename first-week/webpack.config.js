@@ -1,15 +1,29 @@
+var path = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   plugins: [
-    new BundleAnalyzerPlugin({
-      // analyzerMode: "static",
-      openAnalyzer: true,
-    })
-  ]
-}
+    new BundleAnalyzerPlugin()
+  ],
+   entry : './src/test.js',
+    output: {
+        filename : 'bundle.js',
+        path : path.resolve(__dirname + '/build')
+    },
+    mode : 'none',
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
+  }
+};
 
-// webpack.config.js
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const dotenv = require('dotenv');

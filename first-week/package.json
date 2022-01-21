@@ -4,14 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run compile",
     "compile": "babel src -d dist",
     "local": "webpack-dev-server --mode development local",
     "server": "webpack-dev-server --mode development server",
     "build": "webpack-bundle-analyzer --port 8888 dist/stats.json",
-    "dev-server": "webpack-dev-server --open",
-     "stats": "webpack-bundle-analyzer dist/stats.json"
+    "dev": "webpack serve --mode development --open --hot"
   },
   "keywords": [],
   "author": "",
